@@ -1,0 +1,1 @@
+<?php slot('menu', 'menu') ?>

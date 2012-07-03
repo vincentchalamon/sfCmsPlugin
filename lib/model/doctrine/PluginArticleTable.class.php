@@ -68,7 +68,7 @@ class PluginArticleTable extends Doctrine_Table
                         ->where("a.slug = ?", $slug)
                         ->andWhere("a.content_type = ?", $contentType)
                         ->andWhere("a.deleted_at IS NULL")
-                        ->leftJoin("a.Menus m")
+                        ->leftJoin("a.Menu m")
                         ->fetchOne();
     }
 }

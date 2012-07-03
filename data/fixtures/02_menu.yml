@@ -1,0 +1,85 @@
+Menu:
+  front:
+    slug: front
+    started_at: '2011-01-01 00:00:00'
+    name: Accueil
+    Article: homepage
+  links:
+    slug: links
+    started_at: '2011-01-01 00:00:00'
+    name: Liens externes
+  admin:
+    slug: admin
+    started_at: '2011-01-01 00:00:00'
+    name: Administration
+    children:
+      dashboard:
+        started_at: '2011-01-01 00:00:00'
+        name: Tableau de bord
+        slug: dashboard
+        url: "@admin"
+        require_auth: true
+        Permissions:
+          dashboard:
+            name: Dashboard
+            description: Peut accéder au tableau de bord
+      articles:
+        started_at: '2011-01-01 00:00:00'
+        name: Articles
+        slug: article
+        url: "@article"
+        require_auth: true
+        Permissions:
+          article:
+            name: Article
+            description: Peut accéder aux articles
+      partials:
+        started_at: '2011-01-01 00:00:00'
+        name: Blocs statiques
+        slug: partial
+        url: "@partial"
+        require_auth: true
+        Permissions:
+          partial:
+            name: Partial
+            description: Peut accéder aux blocs statiques
+      menus:
+        started_at: '2011-01-01 00:00:00'
+        name: Arborescence
+        slug: menu
+        url: "@menu"
+        require_auth: true
+        Permissions:
+          menu:
+            name: Menu
+            description: Peut accéder à l'arborescence
+      users:
+        started_at: '2011-01-01 00:00:00'
+        name: Utilisateurs
+        slug: sfGuardUser
+        url: "@sf_guard_user"
+        require_auth: true
+        Permissions:
+          user:
+            name: User
+            description: Peut accéder aux utilisateurs
+      groups:
+        started_at: '2011-01-01 00:00:00'
+        name: Groupes d'utilisateurs
+        slug: sfGuardGroup
+        url: "@sf_guard_group"
+        require_auth: true
+        Permissions:
+          group:
+            name: Group
+            description: Peut accéder aux groupes d'utilisateurs
+      permissions:
+        started_at: '2011-01-01 00:00:00'
+        name: Permissions d'utilisateurs
+        slug: sfGuardPermission
+        url: "@sf_guard_permission"
+        require_auth: true
+        Permissions:
+          permission:
+            name: Permission
+            description: Peut accéder aux permissions d'utilisateurs

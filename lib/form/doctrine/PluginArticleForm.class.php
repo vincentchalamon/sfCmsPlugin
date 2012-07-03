@@ -11,9 +11,8 @@
 abstract class PluginArticleForm extends BaseArticleForm
 {
 
-    public function setup()
+    public function configure()
     {
-        parent::setup();
         unset($this['created_at'], $this['updated_at'], $this['deleted_at']);
         $this->widgetSchema['content_type'] = new sfWidgetFormInputHidden();
         if ($this->getUser()->hasGroup("Association") || !$this->isNew()) {
@@ -103,8 +102,8 @@ abstract class PluginArticleForm extends BaseArticleForm
         $this->validatorSchema['ended_at'] = new sfValidatorDateCustom(array('required' => false));
         $this->getWidgetSchema()->setHelp("ended_at", "Date jusqu'à laquelle l'article doit être publié. Si vide, l'article sera publié indéfiniement.");
 
-        if ($this->getObject()->isSystem() || $this->getObject()->isPartial()) {
-            unset($this['started_at'], $this['ended_at'], $this['url'], $this['require_auth'], $this['require_no_auth']);
+        if ($this->getObject()->isSystem()) {
+            unset($this['started_at'], $this['ended_at'], $this['url']);
         }
         foreach ($this->getValidatorSchema()->getPostValidator()->getValidators() as $validator) {
             if (in_array('url', $validator->getOption('column'))) {

@@ -12,9 +12,8 @@ abstract class PluginMenuForm extends BaseMenuForm
 {
     protected $parentId = null;
 
-    public function setup()
+    public function configure()
     {
-        parent::setup();
         unset($this['created_at'], $this['updated_at'], $this['deleted_at'], $this['root_id'], $this['lft'], $this['rgt'], $this['level']);
         $this->widgetSchema['slug'] = new sfWidgetFormInputHidden();
 

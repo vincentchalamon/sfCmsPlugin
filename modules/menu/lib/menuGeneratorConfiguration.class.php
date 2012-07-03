@@ -1,7 +1,5 @@
 <?php
 
-require_once dirname(__FILE__).'/PluginMenuGeneratorConfiguration.class.php';
-
 /**
  * menu module configuration.
  *

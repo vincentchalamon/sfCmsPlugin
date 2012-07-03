@@ -2,19 +2,18 @@
 
 class sfGoogleAnalyticsView extends sfPHPView
 {
-
-    /**
-     * Loop through all template slots and fill them in with the results of presentation data.
-     *
-     * @param  string $content  A chunk of decorator content
-     *
-     * @return string A decorated template
-     */
-    protected function decorate($content)
-    {
-        // Load google analytics tracking code
-        $config = sfConfig::get('app_sf_admin_template_google_analytics', array());
-        return !isset($config['code']) ? parent::decorate($content) : parent::decorate($content).sprintf(<<<EOF
+  /**
+   * Loop through all template slots and fill them in with the results of presentation data.
+   *
+   * @param  string $content  A chunk of decorator content
+   *
+   * @return string A decorated template
+   */
+  protected function decorate($content)
+  {
+    // Load google analytics tracking code
+    die(sfConfig::get('app_sf_cms_google_analytics'));
+    return !sfConfig::get('app_sf_cms_google_analytics') ? parent::decorate($content) : parent::decorate($content).sprintf(<<<EOF
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', '%s']);
@@ -28,6 +27,6 @@ class sfGoogleAnalyticsView extends sfPHPView
   })();
 </script>
 EOF
-                        , $config['code'], @$_SERVER['SERVER_NAME']);
-    }
+            , sfConfig::get('app_sf_cms_google_analytics'), @$_SERVER['SERVER_NAME']);
+  }
 }

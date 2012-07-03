@@ -13,8 +13,8 @@ class PartialForm extends ArticleForm
 
     public function configure()
     {
-        unset($this['created_at'], $this['updated_at'], $this['deleted_at'],
-              $this['gabarit'], $this['keywords'], $this['description'], $this['url']);
+        parent::configure();
+        unset($this['created_at'], $this['updated_at'], $this['deleted_at'], $this['gabarit'], $this['keywords'], $this['description'], $this['url']);
         $this->setDefault("content_type", Article::PARTIAL);
 
         // Slug

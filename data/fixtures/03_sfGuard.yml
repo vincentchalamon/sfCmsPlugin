@@ -1,0 +1,24 @@
+sfGuardGroup:
+  admin:
+    name:           Admin
+    description:    Groupe des administrateurs
+    Permissions:    [dashboard, article, partial, menu, user]
+    Users:
+      admin:
+        first_name:     Admin
+        last_name:      ADMIN
+        email_address:  admin@example.com
+        username:       admin
+        password:       admin
+        is_super_admin: true
+  editor:
+    name:           Editor
+    description:    Groupe des éditeurs
+    Permissions:    [dashboard, article, partial, menu]
+    Users:
+      editor:
+        first_name:     Editor
+        last_name:      EDITOR
+        email_address:  editor@example.com
+        username:       editor
+        password:       editor

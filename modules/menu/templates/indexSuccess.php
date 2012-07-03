@@ -1,5 +1,5 @@
-<?php use_stylesheet('/sfCmsPlugin/css/jquery.treeTable.css') ?>
-<?php use_javascript('/sfCmsPlugin/js/jquery.treeTable.min.js') ?>
+<?php use_stylesheet('jquery.treeTable.css') ?>
+<?php use_javascript('jquery.treeTable.min.js') ?>
 <script type="text/javascript">
   $(document).ready(function(){
     // Tree table

@@ -22,6 +22,8 @@ generator:
       fields:
         search:
           label: Rechercher
+        song:
+          label: Musique de fond
         tags:
           label: Tags
         title:

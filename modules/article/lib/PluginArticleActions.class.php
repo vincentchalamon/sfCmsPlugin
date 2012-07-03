@@ -13,6 +13,25 @@ require_once dirname(__FILE__).'/articleGeneratorHelper.class.php';
 abstract class PluginArticleActions extends autoArticleActions
 {
 
+    protected function processFancyboxForm(ArticleForm $form, sfWebRequest $request)
+    {
+        if ($request->isMethod("post")) {
+            $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+            if ($this->form->isValid()) {
+                $this->form->save();
+                return $this->renderText(sprintf(<<<EOF
+<script type="text/javascript">
+  parent.formSuccess('Les informations ont été correctement mises à jour.');
+</script>
+EOF
+                                ));
+            } else {
+                $this->getUser()->setFlash('error', 'Le formulaire est invalide.');
+                return sfView::SUCCESS;
+            }
+        }
+    }
+
     public function executeShow(sfWebRequest $request)
     {
         $this->redirect("@".$this->getRoute()->getObject()->getRouteName());
@@ -45,5 +64,14 @@ abstract class PluginArticleActions extends autoArticleActions
                 ->delete()->execute();
         $this->getUser()->setFlash('notice', 'The selected items have been deleted successfully.');
         $this->redirect('@article');
+    }
+
+    protected function buildQuery()
+    {
+        $query = parent::buildQuery();
+        if ($this->getUser()->hasGroup('Association')) {
+            $query->andWhere($query->getRootAlias().".author_id = ?", $this->getUser()->getGuardUser()->getPrimaryKey());
+        }
+        return $query;
     }
 }

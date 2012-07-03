@@ -1,8 +1,3 @@
-sfGuardUser:
-  package_custom_path: plugins/sfDoctrineGuardPlugin
-  columns:
-    redirect_url: string(255)
-
 Menu:
   actAs:
     SoftDelete: ~
@@ -88,7 +83,7 @@ Article:
     content_type:
       type: enum
       notnull: true
-      values: [article, partial]
+      values: [article, partial, news]
       default: article
     url:
       type: string(255)
