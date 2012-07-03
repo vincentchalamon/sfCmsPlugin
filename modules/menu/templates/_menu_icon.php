@@ -1,0 +1,1 @@
+<span class="<?php echo $menu->hasChildren() ? 'folder' : 'file' ?>"><?php echo $menu->getName() ?></span>

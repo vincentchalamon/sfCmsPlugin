@@ -1,0 +1,64 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Article
+    theme:                 admin_template
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          article
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _publish:
+          label: Publier
+          action: publish
+        _unpublish:
+          label: Dépublier
+          action: unpublish
+      fields:
+        search:
+          label: Rechercher
+        tags:
+          label: Tags
+        title:
+          label: Titre
+        gabarit:
+          label: Agencement
+        contents:
+          label: Contenu
+        keywords:
+          label: Mots-clé
+        url:
+          label: Adresse personnalisée
+        author:
+          label: Auteur
+        author_id:
+          label: Auteur
+        started_at:
+          label: Début de publication
+        ended_at:
+          label: Fin de publication
+        publication_state:
+          label: Etat
+      list:
+        title: Articles
+        display: [title, author, publication_state]
+        table_method: findArticles
+        sort: [title, asc]
+        batch_actions: []
+        object_actions:
+          _edit: ~
+          _show: ~
+          _publish: ~
+          _unpublish: ~
+      filter:
+        display: [search, publication]
+      form:    ~
+      edit:
+        title: Edition de "%%title%%"
+      new:
+        title: Création d'un article

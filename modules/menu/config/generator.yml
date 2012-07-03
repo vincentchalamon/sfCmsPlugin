@@ -1,0 +1,59 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Menu
+    theme:                 admin_template
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          menu
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        search:
+          label: Rechercher
+        name:
+          label: Titre
+        menu_icon:
+          label: Nom
+        url:
+          label: Url
+        article_id:
+          label: Article lié
+        article:
+          label: Article lié
+        started_at:
+          label: Début de publication
+        ended_at:
+          label: Fin de publication
+        publication_state:
+          label: Etat
+      list:
+        title: Arborescence
+        display: [_menu_icon, publication_state, _actions]
+        max_per_page: 999999
+        table_method: findMenus
+        batch_actions:
+          order:
+            label: Mettre à jour
+          _delete: ~
+        object_actions:
+          _add:
+            label: Ajouter enfant
+            action: add
+          _edit:    ~
+          _delete:  ~
+        actions:
+          _new:
+            label: Ajouter racine
+      filter:
+        display: [search, publication]
+      form:    ~
+      edit:
+        title: Edition du menu "%%name%%"
+      new:
+        title: Nouveau menu

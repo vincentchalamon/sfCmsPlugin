@@ -1,0 +1,4 @@
+default:
+  layout: admin
+  metas:
+    robots: noindex

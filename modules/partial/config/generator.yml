@@ -1,0 +1,55 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Article
+    theme:                 admin_template
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          partial
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        search:
+          label: Rechercher
+        title:
+          label: Titre
+        contents:
+          label: Contenu
+        slug:
+          label: Clé
+        started_at:
+          label: Début de publication
+        ended_at:
+          label: Fin de publication
+        publication_state:
+          label: Etat
+      list:
+        title: Blocs statiques
+        display: [title, slug, publication_state]
+        table_method: findPartials
+        sort: [title, asc]
+        actions: []
+        object_actions:
+          _edit: ~
+          _show: ~
+        batch_actions: []
+      show:
+        title: %%title%%
+        display: [title, started_at, ended_at, slug, contents]
+      filter:
+        display: [search, publication]
+      form:
+        class: PartialForm
+      edit:
+        title: Edition de "%%title%%"
+        actions:
+          _list: ~
+          _save: ~
+          _show: ~
+      new:
+        title: Création d'un bloc statique

@@ -1,0 +1,123 @@
+sfGuardUser:
+  package_custom_path: plugins/sfDoctrineGuardPlugin
+  columns:
+    redirect_url: string(255)
+
+Menu:
+  actAs:
+    SoftDelete: ~
+    NestedSet:
+      hasManyRoots: true
+      rootColumnName: root_id
+    Publishable: ~
+    Timestampable: ~
+    Sluggable:
+      fields: [name]
+      canUpdate: false
+  columns:
+    name:
+      type: string(255)
+      notnull: true
+    url: string(255)
+    article_id:
+      type: integer
+      unique: true
+    require_auth:
+      type: boolean
+      default: false
+    require_no_auth:
+      type: boolean
+      default: false
+  relations:
+    Article:
+      onDelete: SET NULL
+      foreignAlias: Menus
+    Permissions:
+      class: sfGuardPermission
+      refClass: MenuPermission
+      local: menu_id
+      foreign: permission_id
+      foreignAlias: Menus
+
+MenuPermission:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  columns:
+    menu_id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: false
+    permission_id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: false
+  relations:
+    Menu:
+      onDelete: CASCADE
+    Permission:
+      class: sfGuardPermission
+      local: permission_id
+      onDelete: CASCADE
+
+Article:
+  actAs:
+    Taggable: ~
+    SoftDelete: ~
+    Searchable:
+      fields: [title, contents, keywords, description, url]
+      batchUpdates: true
+    Publishable: ~
+    Timestampable: ~
+    Sluggable:
+      fields: [title]
+      canUpdate: false
+  columns:
+    title:
+      type: string(255)
+      notnull: true
+    gabarit: string(255)
+    contents:
+      type: clob
+      notnull: true
+    keywords: clob
+    description: clob
+    content_type:
+      type: enum
+      notnull: true
+      values: [article, partial]
+      default: article
+    url:
+      type: string(255)
+      unique: true
+    author_id:
+      type: integer
+      notnull: true
+    require_auth:
+      type: boolean
+      default: false
+    require_no_auth:
+      type: boolean
+      default: false
+  relations:
+    Author:
+      class: sfGuardUser
+      local: author_id
+      foreign: id
+      foreignAlias: Articles
+
+ChuckPassword:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  columns:
+    pass:
+      type: string(20)
+      notnull: true
+    created_at:
+      type: timestamp
+      notnull: true

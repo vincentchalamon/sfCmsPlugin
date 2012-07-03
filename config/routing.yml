@@ -1,0 +1,84 @@
+rss:
+  url:   /flux.rss
+  param: { module: sfCms, action: rss, sf_format: xml }
+
+sitemap:
+  url:   /sitemap.xml
+  param: { module: sfCms, action: sitemap, sf_format: xml }
+
+search:
+  url:   /rechercher
+  param: { module: sfCms, action: search }
+
+sf_guard_signin:
+  url:   /connexion
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+  url:   /deconnexion
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /mot-de-passe-perdu
+  param: { module: sfGuardAuth, action: password }
+
+menu:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Menu
+    module:               menu
+    prefix_path:          /admin/arborescence
+    column:               id
+    with_wildcard_routes: true
+    object_actions:
+      add:                [get, post]
+
+article:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Article
+    module:               article
+    prefix_path:          /admin/articles
+    column:               id
+    with_wildcard_routes: true
+    object_actions:
+      publish:            [get, post]
+      unpublish:          [get, post]
+    collection_actions:
+      tags_autocomplete:  [post]
+
+partial:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Article
+    module:               partial
+    prefix_path:          /admin/blocs
+    column:               id
+    with_wildcard_routes: true
+
+sf_guard_user:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardUser
+    module:               sfGuardUser
+    prefix_path:          /admin/utilisateurs
+    column:               id
+    with_wildcard_routes: true
+
+sf_guard_group:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardGroup
+    module:               sfGuardGroup
+    prefix_path:          /admin/groupes
+    column:               id
+    with_wildcard_routes: true
+
+sf_guard_permission:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardPermission
+    module:               sfGuardPermission
+    prefix_path:          /admin/permissions
+    column:               id
+    with_wildcard_routes: true

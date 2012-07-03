@@ -1,0 +1,47 @@
+sfGuardPermission:
+  dashboard:
+    name: Dashboard
+    description: Peut accéder au tableau de bord
+  article:
+    name: Article
+    description: Peut accéder aux articles
+  partial:
+    name: Partial
+    description: Peut accéder aux blocs statiques
+  menu:
+    name: Menu
+    description: Peut accéder à l'arborescence
+  user:
+    name: User
+    description: Peut accéder aux utilisateurs
+  group:
+    name: Group
+    description: Peut accéder aux groupes d'utilisateurs
+  permission:
+    name: Permission
+    description: Peut accéder aux permissions d'utilisateurs
+
+sfGuardGroup:
+  admin:
+    name:           Admin
+    description:    Groupe des administrateurs
+    Permissions:    [dashboard, article, partial, menu, user]
+    Users:
+      admin:
+        first_name:     Admin
+        last_name:      ADMIN
+        email_address:  admin@example.com
+        username:       admin
+        password:       admin
+        is_super_admin: true
+  editor:
+    name:           Editor
+    description:    Groupe des éditeurs
+    Permissions:    [dashboard, article, partial, menu]
+    Users:
+      editor:
+        first_name:     Editor
+        last_name:      EDITOR
+        email_address:  editor@example.com
+        username:       editor
+        password:       editor

@@ -1,0 +1,174 @@
+Article:
+  unpublished:
+    slug: unpublished
+    title: OOOPS... La page n'est pas publiée
+    contents: |
+      <h3>La page demandée n'est pas encore publiée !</h3>
+      <p>Vous tentez d'accéder à une page qui n'est pas encore publiée. Nous
+      mettons tout en oeuvre pour rédiger cette page au plus vite. N'hésitez pas à
+      consulter le <a href="/plan-du-site" title="Plan du site">plan du site</a>
+      pour vous guider dans votre navigation. Un moteur de recherche est également
+      à votre disposition.</p>
+      <h3>En attendant...</h3>
+      <ul>
+        <li>Vous pouvez rechercher du contenu directement sur le site grâce au moteur de recherche ci-dessous</li>
+        <li>Si vous avez saisi manuellement une adresse, vérifiez son orthographe</li>
+        <li>Vous souhaitez un renseignement ? Contactez-nous à travers le <a href="/nous-contacter" title="Formulaire de contact">formulaire de contact</a></li>
+      </ul>
+    keywords: La page n'est pas publiée
+    description: La page n'est pas publiée
+    content_type: article
+    Author: admin
+    gabarit: error
+  error404:
+    slug: error404
+    title: OOOPS... La page n'existe pas
+    contents: |
+      <h3>La page demandée n'existe pas !</h3>
+      <p>Vous tentez d'accéder à une page qui n'existe pas. Peut-être avez-vous
+      mal saisi l'adresse ou s'agit-il d'une ancienne page. N'hésitez pas à
+      consulter le <a href="/plan-du-site" title="Plan du site">plan du site</a>
+      pour vous guider dans votre navigation. Un moteur de recherche est également
+      à votre disposition.</p>
+      <h3>En attendant...</h3>
+      <ul>
+        <li>Vous pouvez rechercher du contenu directement sur le site grâce au moteur de recherche ci-dessous</li>
+        <li>Si vous avez saisi manuellement une adresse, vérifiez son orthographe</li>
+        <li>Vous souhaitez un renseignement ? Contactez-nous à travers le <a href="/nous-contacter" title="Formulaire de contact">formulaire de contact</a></li>
+      </ul>
+    keywords: Erreur 404
+    description: Erreur 404
+    content_type: article
+    Author: admin
+    gabarit: error
+  error500:
+    slug: error500
+    title: OOOPS... Une erreur est survenue
+    contents: |
+      <h3>Une erreur est survenue !</h3>
+      <p>Une erreur est survenue sur cette page. Nous mettons tout en oeuvre
+      pour la corriger au plus vite. N'hésitez pas à consulter le
+      <a href="/plan-du-site" title="Plan du site">plan du site</a> pour vous
+      guider dans votre navigation. Un moteur de recherche est également à votre
+      disposition.</p>
+      <h3>En attendant...</h3>
+      <ul>
+        <li>Vous pouvez rechercher du contenu directement sur le site grâce au moteur de recherche ci-dessous</li>
+        <li>Si vous avez saisi manuellement une adresse, vérifiez son orthographe</li>
+        <li>Vous souhaitez un renseignement ? Contactez-nous à travers le <a href="/nous-contacter" title="Formulaire de contact">formulaire de contact</a></li>
+      </ul>
+    keywords: Erreur 500
+    description: Erreur 500
+    content_type: article
+    Author: admin
+    gabarit: error
+  search:
+    slug: search
+    started_at: '2011-01-01 00:00:00'
+    title: Résultats de la recherche
+    contents: Votre recherche n'a donné aucun résultat.
+    content_type: partial
+    Author: admin
+  secure:
+    slug: secure
+    started_at: '2011-01-01 00:00:00'
+    title: Accès refusé
+    contents: |
+      <h3>Vous n'avez pas accès à cette page !</h3>
+      <p>Vous tentez d'accéder à une page sécurisée alors que vous ne possédez pas
+      les droits nécessaires.</p>
+    content_type: partial
+    Author: admin
+  login:
+    slug: login
+    started_at: '2011-01-01 00:00:00'
+    title: Administration
+    contents: |
+      <h3>Veuillez vous connecter !</h3>
+      <p>Vous tentez d'accéder à une page sécurisée alors que vous n'êtes pas
+      connecté sur le site. Veuillez vous identifier grâce au formulaire ci-dessous.</p>
+    content_type: partial
+    Author: admin
+  sitemap:
+    slug: sitemap
+    title: Plan du site
+    contents: <p>Plan du site</p>
+    keywords: Plan du site
+    description: Plan du site
+    content_type: article
+    Author: admin
+    gabarit: sitemap
+    url: "/plan-du-site"
+    started_at: '2011-01-01 00:00:00'
+  contact:
+    slug: contact
+    title: Nous contacter
+    contents: <p>Nous contacter</p>
+    keywords: Nous contacter
+    description: Nous contacter
+    content_type: article
+    Author: admin
+    gabarit: contact
+    url: "/nous-contacter"
+    started_at: '2011-01-01 00:00:00'
+#  homepage:
+#    slug: homepage
+#    title: Bienvenue
+#    contents: |
+#      <div class="list">
+#        <h2>First</h2>
+#        <ul>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#        </ul>
+#      </div>
+#      <div class="list">
+#        <h2>Second</h2>
+#        <ul>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#        </ul>
+#      </div>
+#      <div class="list">
+#        <h2>Last</h2>
+#        <ul>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#        </ul>
+#      </div>
+#    keywords: Bienvenue
+#    description: Bienvenue
+#    content_type: article
+#    url: "/"
+#    Author: admin
+#    gabarit: homepage
