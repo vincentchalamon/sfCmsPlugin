@@ -34,7 +34,7 @@ generator:
           label: Etat
       list:
         title: Arborescence
-        display: [_menu_icon, publication_state, _actions]
+        display: [_menu_icon, publication_state]
         max_per_page: 999999
         table_method: findMenus
         batch_actions:

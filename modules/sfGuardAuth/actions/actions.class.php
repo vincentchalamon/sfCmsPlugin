@@ -11,14 +11,14 @@ require_once sfConfig::get('sf_plugins_dir').'/sfDoctrineGuardPlugin/modules/sfG
  */
 class sfGuardAuthActions extends BasesfGuardAuthActions
 {
-  public function executeSignin(sfWebRequest $request)
+  public function executeSignin($request)
   {
     $user = $this->getUser();
     
     if ($user->isAuthenticated())
     {
       $guard = $this->getUser()->getGuardUser();
-      return $this->redirect($guard->getIsSuperAdmin() ? $guard->getRedirectUrl() : $user->getReferer("@homepage"));
+      return $this->redirect($guard->getRedirectUrl() ? $guard->getRedirectUrl() : $user->getReferer("@homepage"));
     }
 
     $class = sfConfig::get('app_sf_guard_plugin_signin_form', 'sfGuardFormSignin'); 
@@ -32,7 +32,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
         $values = $this->form->getValues(); 
         $this->getUser()->signin($values['user'], array_key_exists('remember', $values) ? $values['remember'] : false);
         $guard = $this->getUser()->getGuardUser();
-        return $this->redirect($guard->getIsSuperAdmin() ? $guard->getRedirectUrl() : $user->getReferer("@homepage"));
+        return $this->redirect($guard->getRedirectUrl() ? $guard->getRedirectUrl() : $user->getReferer("@homepage"));
       }
       $this->getUser()->setFlash('error', "Le formulaire est invalide.", false);
       $user->setReferer($this->getContext()->getActionStack()->getSize() > 1 ? $request->getUri() : $request->getReferer());

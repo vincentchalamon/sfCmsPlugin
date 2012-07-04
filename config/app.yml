@@ -1,4 +1,6 @@
 all:
+  sf_guard_plugin:
+    success_signout_url: '@homepage'
   sf_admin_template:
     menus:
       dashboard:
