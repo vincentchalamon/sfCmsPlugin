@@ -34,6 +34,7 @@ sfGuardGroup:
         username:       admin
         password:       admin
         is_super_admin: true
+        redirect_url:   '@sf_admin_dashboard'
   editor:
     name:           Editor
     description:    Groupe des éditeurs
@@ -45,3 +46,4 @@ sfGuardGroup:
         email_address:  editor@example.com
         username:       editor
         password:       editor
+        redirect_url:   '@sf_admin_dashboard'
