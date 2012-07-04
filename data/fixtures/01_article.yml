@@ -111,64 +111,64 @@ Article:
     gabarit: contact
     url: "/nous-contacter"
     started_at: '2011-01-01 00:00:00'
-  homepage:
-    slug: homepage
-    title: Bienvenue
-    contents: |
-      <div class="list">
-        <h2>First</h2>
-        <ul>
-          <li>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
-            <a href="" class="follow">Lire la suite...</a>
-          </li>
-          <li>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
-            <a href="" class="follow">Lire la suite...</a>
-          </li>
-          <li>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
-            <a href="" class="follow">Lire la suite...</a>
-          </li>
-        </ul>
-      </div>
-      <div class="list">
-        <h2>Second</h2>
-        <ul>
-          <li>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
-            <a href="" class="follow">Lire la suite...</a>
-          </li>
-          <li>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
-            <a href="" class="follow">Lire la suite...</a>
-          </li>
-          <li>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
-            <a href="" class="follow">Lire la suite...</a>
-          </li>
-        </ul>
-      </div>
-      <div class="list">
-        <h2>Last</h2>
-        <ul>
-          <li>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
-            <a href="" class="follow">Lire la suite...</a>
-          </li>
-          <li>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
-            <a href="" class="follow">Lire la suite...</a>
-          </li>
-          <li>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
-            <a href="" class="follow">Lire la suite...</a>
-          </li>
-        </ul>
-      </div>
-    keywords: Bienvenue
-    description: Bienvenue
-    content_type: article
-    url: "/"
-    Author: admin
-    gabarit: homepage
+#  homepage:
+#    slug: homepage
+#    title: Bienvenue
+#    contents: |
+#      <div class="list">
+#        <h2>First</h2>
+#        <ul>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#        </ul>
+#      </div>
+#      <div class="list">
+#        <h2>Second</h2>
+#        <ul>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#        </ul>
+#      </div>
+#      <div class="list">
+#        <h2>Last</h2>
+#        <ul>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#          <li>
+#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Agenda du consul</a></p>
+#            <a href="" class="follow">Lire la suite...</a>
+#          </li>
+#        </ul>
+#      </div>
+#    keywords: Bienvenue
+#    description: Bienvenue
+#    content_type: article
+#    url: "/"
+#    Author: admin
+#    gabarit: homepage

@@ -16,7 +16,7 @@ abstract class PluginArticleGeneratorConfiguration extends BaseArticleGeneratorC
 
   public function getMetasDisplay()
   {
-    return array("author_id", "url", "tags", "keywords", "description", "started_at", "ended_at", "require_auth", "require_no_auth", "song");
+    return array("author_id", "url", "tags", "keywords", "description", "started_at", "ended_at", "require_auth", "require_no_auth");
   }
 
   public function compile()

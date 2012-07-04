@@ -1,3 +1,31 @@
 all:
-  sf_cms:
-    google_analytics: "UA-8749552-1"
+  sf_admin_template:
+    menus:
+      dashboard:
+        label: Tableau de bord
+        route_prefix: sf_admin_dashboard
+        credentials: [dashboard]
+      articles:
+        label: Articles
+        route_prefix: article
+        credentials: [article]
+      partials:
+        label: Blocs statiques
+        route_prefix: partial
+        credentials: [partial]
+      menus:
+        label: Arborescence
+        route_prefix: menu
+        credentials: [menu]
+      users:
+        label: Utilisateurs
+        route_prefix: sf_guard_user
+        credentials: [user]
+      groups:
+        label: Groupes
+        route_prefix: sf_guard_group
+        credentials: [group]
+      permissions:
+        label: Permissions
+        route_prefix: sf_guard_permission
+        credentials: [permission]

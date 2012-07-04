@@ -33,6 +33,11 @@ generator:
         display: [title, slug, publication_state]
         table_method: findPartials
         sort: [title, asc]
+        actions: []
+        object_actions:
+          _edit: ~
+          _show: ~
+        batch_actions: []
       show:
         title: %%title%%
         display: [title, started_at, ended_at, slug, contents]
@@ -42,5 +47,9 @@ generator:
         class: PartialForm
       edit:
         title: Edition de "%%title%%"
+        actions:
+          _list: ~
+          _save: ~
+          _show: ~
       new:
         title: Création d'un bloc statique

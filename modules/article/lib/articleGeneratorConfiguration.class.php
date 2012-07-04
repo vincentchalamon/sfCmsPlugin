@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname(__FILE__).'/PluginArticleGeneratorConfiguration.class.php';
+
 /**
  * article module configuration.
  *

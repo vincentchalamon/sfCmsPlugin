@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname(__FILE__).'/PluginArticleGeneratorHelper.class.php';
+
 /**
  * article module helper.
  *

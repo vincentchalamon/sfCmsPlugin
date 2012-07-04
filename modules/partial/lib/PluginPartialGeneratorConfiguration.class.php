@@ -18,4 +18,16 @@ abstract class PluginPartialGeneratorConfiguration extends BasePartialGeneratorC
   {
     return array("slug", "started_at", "ended_at");
   }
+
+  public function compile()
+  {
+    parent::compile();
+    $this->configuration['metas'] = $this->configuration['edit'];
+    $this->configuration['main'] = $this->configuration['edit'];
+  }
+
+  protected function getConfig()
+  {
+    return array_merge(array('main' => $this->getFieldsDefault(), 'metas' => $this->getFieldsDefault()), parent::getConfig());
+  }
 }

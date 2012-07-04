@@ -10,6 +10,18 @@ search:
   url:   /rechercher
   param: { module: sfCms, action: search }
 
+sf_guard_signin:
+  url:   /connexion
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+  url:   /deconnexion
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /mot-de-passe-perdu
+  param: { module: sfGuardAuth, action: password }
+
 menu:
   class: sfDoctrineRouteCollection
   options:
@@ -41,5 +53,32 @@ partial:
     model:                Article
     module:               partial
     prefix_path:          /admin/blocs
+    column:               id
+    with_wildcard_routes: true
+
+sf_guard_user:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardUser
+    module:               sfGuardUser
+    prefix_path:          /admin/utilisateurs
+    column:               id
+    with_wildcard_routes: true
+
+sf_guard_group:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardGroup
+    module:               sfGuardGroup
+    prefix_path:          /admin/groupes
+    column:               id
+    with_wildcard_routes: true
+
+sf_guard_permission:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardPermission
+    module:               sfGuardPermission
+    prefix_path:          /admin/permissions
     column:               id
     with_wildcard_routes: true
