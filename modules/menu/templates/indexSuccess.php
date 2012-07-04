@@ -14,8 +14,8 @@
       padding: 0,
       margin: 0
     });
-    $('.sf_admin_row td .menu_actions').live('click', function(){
-      $(this).parents('tr:first').next('.sf_admin_row_object_actions').find('a.fancybox').click();
+    $('.sf_admin_row td:not(.sf_admin_batch_actions)').live('click', function(){
+      $(this).parent().next('.sf_admin_row_object_actions').find('a.fancybox').click();
     });
     // Batch actions
     if($('.contentbox tfoot select[name=batch_action] option').length <= 1) {

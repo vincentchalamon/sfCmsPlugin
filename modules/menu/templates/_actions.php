@@ -1,1 +1,0 @@
-<span class="menu_actions"><a href="#">Actions</a></span>

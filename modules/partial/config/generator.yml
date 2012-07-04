@@ -22,15 +22,9 @@ generator:
           label: Contenu
         slug:
           label: Clé
-        started_at:
-          label: Début de publication
-        ended_at:
-          label: Fin de publication
-        publication_state:
-          label: Etat
       list:
         title: Blocs statiques
-        display: [title, slug, publication_state]
+        display: [title, slug]
         table_method: findPartials
         sort: [title, asc]
         actions: []
@@ -40,9 +34,12 @@ generator:
         batch_actions: []
       show:
         title: %%title%%
-        display: [title, started_at, ended_at, slug, contents]
+        display: [title, slug, contents]
+        actions:
+          _edit: ~
+          _list: ~
       filter:
-        display: [search, publication]
+        display: [search]
       form:
         class: PartialForm
       edit:
@@ -51,5 +48,3 @@ generator:
           _list: ~
           _save: ~
           _show: ~
-      new:
-        title: Création d'un bloc statique
