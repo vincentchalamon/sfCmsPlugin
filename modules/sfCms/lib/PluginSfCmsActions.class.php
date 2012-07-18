@@ -45,7 +45,6 @@ class PluginSfCmsActions extends sfActions
             $this->getUser()->setFlash('info', "Cet article n'est pas encore publié !");
         }
         $this->gabarit = !$this->page->getGabarit() ? "default" : $this->page->getGabarit();
-        //$this->setTemplate(!$this->page->getGabarit() ? "default" : $this->page->getGabarit(), "gabarits");
     }
 
     public function executeSearch(sfWebRequest $request)
