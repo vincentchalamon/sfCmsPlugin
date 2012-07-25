@@ -1,6 +1,6 @@
 sfGuardUser:
   package: sfDoctrineGuardPlugin.lib.model.doctrine
-  package_custom_path: plugins.sfDoctrineGuardPlugin.lib.model.doctrine
+  package_custom_path: plugins/sfDoctrineGuardPlugin/lib/model/doctrine
   columns:
     redirect_url: string(255)
 
