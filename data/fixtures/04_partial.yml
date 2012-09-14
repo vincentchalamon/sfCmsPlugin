@@ -1,0 +1,28 @@
+Article:
+  search:
+    slug: search
+    started_at: '2011-01-01 00:00:00'
+    title: Résultats de la recherche
+    contents: Votre recherche n'a donné aucun résultat.
+    content_type: partial
+    Author: editor
+  secure:
+    slug: secure
+    started_at: '2011-01-01 00:00:00'
+    title: Accès refusé
+    contents: |
+      <h3>Vous n'avez pas accès à cette page !</h3>
+      <p>Vous tentez d'accéder à une page sécurisée alors que vous ne possédez pas
+      les droits nécessaires.</p>
+    content_type: partial
+    Author: editor
+  login:
+    slug: login
+    started_at: '2011-01-01 00:00:00'
+    title: Administration
+    contents: |
+      <h3>Veuillez vous connecter !</h3>
+      <p>Vous tentez d'accéder à une page sécurisée alors que vous n'êtes pas
+      connecté sur le site. Veuillez vous identifier grâce au formulaire ci-dessous.</p>
+    content_type: partial
+    Author: editor

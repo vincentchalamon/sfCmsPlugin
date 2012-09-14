@@ -1,7 +1,4 @@
 sfGuardPermission:
-  dashboard:
-    name: Dashboard
-    description: Peut accéder au tableau de bord
   article:
     name: Article
     description: Peut accéder aux articles
@@ -25,7 +22,7 @@ sfGuardGroup:
   admin:
     name:           Admin
     description:    Groupe des administrateurs
-    Permissions:    [dashboard, article, partial, menu, user]
+    Permissions:    [article, partial, menu, user]
     Users:
       admin:
         first_name:     Admin
@@ -33,12 +30,11 @@ sfGuardGroup:
         email_address:  admin@example.com
         username:       admin
         password:       admin
-        is_super_admin: true
-        redirect_url:   '@sf_admin_dashboard'
+        redirect_url:   '@sf_guard_user'
   editor:
     name:           Editor
     description:    Groupe des éditeurs
-    Permissions:    [dashboard, article, partial, menu]
+    Permissions:    [article, partial, menu]
     Users:
       editor:
         first_name:     Editor
@@ -46,4 +42,4 @@ sfGuardGroup:
         email_address:  editor@example.com
         username:       editor
         password:       editor
-        redirect_url:   '@sf_admin_dashboard'
+        redirect_url:   '@article'
