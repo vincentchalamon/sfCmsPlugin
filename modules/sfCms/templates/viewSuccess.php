@@ -1,1 +1,1 @@
-<?php include_partial("gabarits/$gabarit", array('page' => $page, 'menu' => $menu)) ?>
+<?php include_component("gabarits", $gabarit, array('page' => $page, 'menu' => $menu)) ?>

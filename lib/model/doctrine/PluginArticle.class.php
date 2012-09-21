@@ -33,9 +33,6 @@ abstract class PluginArticle extends BaseArticle
             $this['started_at'] = date('Y-m-d H:i:s');
             $this['ended_at'] = null;
         }
-        if (!$this['author_id']) {
-            $this['author_id'] = sfGuardUserTable::getInstance()->findOneByUsername('admin')->getPrimaryKey();
-        }
         // Strip tags for metas
         if ($this['description']) {
             $this['description'] = strip_tags($this['description']);
@@ -58,14 +55,14 @@ abstract class PluginArticle extends BaseArticle
         return $this->getMenus()->count() ? $this->getMenus()->getFirst() : false;
     }
 
-    public function isArticle()
-    {
-        return $this->getContentType() == self::ARTICLE;
-    }
-
     public function isSystem()
     {
         return in_array($this->getSlug(), self::getSystemSlugs());
+    }
+
+    public function isArticle()
+    {
+        return $this->getContentType() == self::ARTICLE;
     }
 
     public function isPartial()
@@ -78,9 +75,9 @@ abstract class PluginArticle extends BaseArticle
         return !is_null($this->getUrl()) && strlen($this->getUrl());
     }
 
-    public function getRoute($absolute = false)
+    public function getRoute()
     {
-        return !$this->hasRoute() ? "/".$this->getSlug() : (preg_match("/^\/.*/i", $this->getUrl()) ? $this->getUrl() : "/".$this->getUrl());
+        return !$this->hasRoute() ? "/".$this->getSlug() : (substr($this->getUrl(), 0, 1) == "/" ? $this->getUrl() : "/".$this->getUrl());
     }
 
     public function getRouteName()
