@@ -11,10 +11,10 @@ function getTagCloud(Article $article)
   return $cloud;
 }
 
-function getPartial($slug, $published = false)
+function getPartial($slug)
 {
   $partial = ArticleTable::getInstance()->findOneBySlugAndContentType($slug, ARTICLE::PARTIAL);
-  return $partial && $partial->isPublished() || $published ? $partial : false;
+  return $partial ? $partial->getContents() : false;
 }
 
 function getMenu($slug, $published = false)

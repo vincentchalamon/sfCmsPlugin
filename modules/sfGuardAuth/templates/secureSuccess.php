@@ -1,6 +1,5 @@
-<p>Oops ! La page demandée est sécurisée, et vous ne disposez pas des droits nécessaires pour y accéder.</p>
-<p>Déconnectez-vous puis reconnectez-vous avec un compte approprié.</p>
+<?php echo getPartial('secure') ?>
 <p>
-  <a href="javascript: history.back();">Retour</a>
-  <?php echo link_to("Déconnexion", "@sf_guard_signout") ?>
+  <a href="javascript:history.back();"><?php echo __('Back', array(), 'sf_cms') ?></a>
+  <?php echo link_to(__('Sign out', array(), 'sf_cms'), "@sf_guard_signout") ?>
 </p>

@@ -28,8 +28,8 @@ abstract class PluginArticle extends BaseArticle
     public function preSave($event)
     {
         parent::preSave($event);
-        // Force publication for system pages
-        if ($this->isSystem()) {
+        // Force publication for system pages or partials
+        if ($this->isSystem() || $this->isPartial()) {
             $this['started_at'] = date('Y-m-d H:i:s');
             $this['ended_at'] = null;
         }

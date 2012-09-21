@@ -12,6 +12,22 @@
         <source>Send</source>
         <target>Envoyer</target>
       </trans-unit>
+      <trans-unit>
+        <source>Sign out</source>
+        <target>Déconnexion</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sign in</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Forgot password ?</source>
+        <target>Mot de passe oublié ?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Back</source>
+        <target>Retour</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

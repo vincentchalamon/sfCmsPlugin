@@ -21,8 +21,7 @@
     <?php endif ?>
   <?php else: ?>
     <div class="search_result">
-      <?php $search = getPartial("search", $sf_user->hasCredential('editor')) ?>
-      <p><?php echo $search ? $search['contents'] : "Aucun résultat" ?></p>
+      <p><?php echo getPartial('search') ?></p>
     </div>
   <?php endif ?>
 </section>
