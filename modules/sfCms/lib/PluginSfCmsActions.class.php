@@ -63,18 +63,21 @@ class PluginSfCmsActions extends sfActions
     public function executeError404(sfWebRequest $request)
     {
         $request->setParameter("slug", "error404");
+        $this->setTemplate("view");
         $this->executeView($request);
     }
 
     public function executeError500(sfWebRequest $request)
     {
         $request->setParameter("slug", "error500");
+        $this->setTemplate("view");
         $this->executeView($request);
     }
 
     public function executeUnpublished(sfWebRequest $request)
     {
         $request->setParameter("slug", "unpublished");
+        $this->setTemplate("view");
         $this->executeView($request);
     }
 
