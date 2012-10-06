@@ -33,6 +33,9 @@ abstract class PluginArticle extends BaseArticle
             $this['started_at'] = date('Y-m-d H:i:s');
             $this['ended_at'] = null;
         }
+        if ($this->getSlug() == 'homepage') {
+            $this['url'] = '/';
+        }
         // Strip tags for metas
         if ($this['description']) {
             $this['description'] = strip_tags($this['description']);

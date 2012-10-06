@@ -20,9 +20,7 @@ Menu:
       type: string(255)
       notnull: true
     url: string(255)
-    article_id:
-      type: integer
-      unique: true
+    article_id: integer
     require_auth:
       type: boolean
       default: false
