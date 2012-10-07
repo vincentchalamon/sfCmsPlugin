@@ -32,7 +32,7 @@ function getBreadcrumb(Menu $menu)
 {
     return MenuTable::getInstance()->createQuery("menu")
                     ->where("menu.root_id = ?", $menu['root_id'])
-                    ->andWhere("menu.level < ?", $menu['level'])
+                    ->andWhere("menu.level < ? AND menu.level > 0", $menu['level'])
                     ->andWhere("menu.lft < ?", $menu['lft'])
                     ->andWhere("menu.rgt > ?", $menu['rgt'])
                     ->orderBy("menu.lft ASC")
