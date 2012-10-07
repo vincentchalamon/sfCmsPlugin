@@ -23,6 +23,7 @@ class PluginSfCmsActions extends sfActions
         $query = ArticleTable::getInstance()->createQuery()
                 ->whereNotIn('slug', Article::getSystemSlugs())
                 ->andWhere('content_type = ?', Article::ARTICLE);
+        $this->renderText($text);
         $this->articles = ArticleTable::getInstance()->findAllPublished("now", "started_at DESC", null, $query);
     }
 

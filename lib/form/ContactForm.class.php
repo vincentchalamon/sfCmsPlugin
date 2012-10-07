@@ -16,14 +16,14 @@ class ContactForm extends BaseForm
         $this->setWidgets(array(
             'name' => new sfWidgetFormInputText(),
             'email' => new sfWidgetFormInputText(),
-            'website' => new sfWidgetFormInputText(),
             'message' => new sfWidgetFormTextarea()
         ));
         $this->setValidators(array(
             'name' => new sfValidatorString(),
             'email' => new sfValidatorEmail(),
-            'website' => new sfValidatorUrl(array('required' => false)),
             'message' => new sfValidatorString()
         ));
+        $this->widgetSchema->setNameFormat('contact[%s]');
+        $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
     }
 }

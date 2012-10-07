@@ -14,23 +14,43 @@ class PluginGabaritsComponents extends sfComponents
     {
         $this->form = new ContactForm();
         if ($request->isMethod('post')) {
-            die("<pre>".print_r($request->getParameter($this->form->getName(), array()), true)."</pre>");
+            $this->form->bind($request->getParameter($this->form->getName(), array()));
+            if ($this->form->isValid()) {
+                $this->getContext()->getConfiguration()->loadHelpers('Partial');
+                $message = $this->getMailer()->compose(
+                        array($this->form->getValue('email') => $this->form->getValue('name')),
+                        sfConfig::get('app_sf_cms_contact'),
+                        $this->getContext()->getI18N()->__('New contact message', array(), 'sf_cms'),
+                        get_partial('sfCms/mail', array(
+                            'title' => $this->getContext()->getI18N()->__('New contact message', array(), 'sf_cms'),
+                            'message' => $this->form->getValue('message')
+                        ))
+                )->setContentType('text/html');
+                $this->getMailer()->send($message);
+                $this->getUser()->setFlash('notice', $this->getContext()->getI18N()->__('Message has been successfully sent.', array(), 'sf_cms'));
+            } else {
+                $this->getUser()->setFlash('error', $this->getContext()->getI18N()->__('Form has errors.', array(), 'sf_cms'), false);
+            }
         }
     }
 
     public function executeDefault(sfWebRequest $request)
     {
+        
     }
 
     public function executeError(sfWebRequest $request)
     {
+        
     }
 
     public function executeHomepage(sfWebRequest $request)
     {
+        
     }
 
     public function executeSitemap(sfWebRequest $request)
     {
+        
     }
 }

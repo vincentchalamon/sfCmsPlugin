@@ -16,8 +16,11 @@ class sfCmsPluginConfiguration extends sfPluginConfiguration
     public function initialize()
     {
         $this->dispatcher->connect('routing.load_configuration', array($this, 'listenToLoadRouting'));
-        sfConfig::set('sf_error_404_module', 'front');
+        sfConfig::set('sf_error_404_module', 'sfCms');
         sfConfig::set('sf_error_404_action', 'error404');
+        if (!sfConfig::get('app_sf_cms_contact')) {
+            throw new sfException('Missing required parameter "app_sf_cms_contact".');
+        }
     }
 
     public function listenToLoadRouting(sfEvent $event)
