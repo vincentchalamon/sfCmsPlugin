@@ -59,4 +59,13 @@ abstract class PluginArticleIndexFormFilter extends BaseArticleIndexFormFilter
             $query->andWhere("($where)", $params);
         }
     }
+    
+    public function buildQuery(array $values)
+    {
+        $query = parent::buildQuery($values);
+        if ($this->getTable()->hasTemplate('SoftDelete')) {
+            $query->andWhere($query->getRootAlias().'.deleted_at IS NULL');
+        }
+        return $query;
+    }
 }
