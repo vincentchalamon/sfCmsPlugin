@@ -8,7 +8,7 @@ Article:
     keywords: La page n'est pas publiée
     description: La page n'est pas publiée
     content_type: article
-    Author: admin
+    Author: editor
     gabarit: error
   error404:
     slug: error404
@@ -20,7 +20,7 @@ Article:
     keywords: Erreur 404
     description: Erreur 404
     content_type: article
-    Author: admin
+    Author: editor
     gabarit: error
   error500:
     slug: error500
@@ -32,5 +32,5 @@ Article:
     keywords: Erreur 500
     description: Erreur 500
     content_type: article
-    Author: admin
+    Author: editor
     gabarit: error

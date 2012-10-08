@@ -23,22 +23,12 @@ sfGuardGroup:
     name:           Admin
     description:    Groupe des administrateurs
     Permissions:    [article, partial, menu, user]
-    Users:
-      admin:
-        email_address:  admin@example.com
-        username:       admin
-        password:       admin
-        redirect_url:   '@sf_guard_user'
+    Users:          [admin]
   editor:
     name:           Editor
     description:    Groupe des éditeurs
     Permissions:    [article, partial, menu]
-    Users:
-      editor:
-        email_address:  editor@example.com
-        username:       editor
-        password:       editor
-        redirect_url:   '@article'
+    Users:          [editor]
 
 sfGuardUser:
   chuck_norris:
@@ -47,3 +37,13 @@ sfGuardUser:
     username:       chuck
     password:       norris
     redirect_url:   '@sf_guard_user'
+  admin:
+    email_address:  admin@example.com
+    username:       admin
+    password:       admin
+    redirect_url:   '@sf_guard_user'
+  editor:
+    email_address:  editor@example.com
+    username:       editor
+    password:       editor
+    redirect_url:   '@article'
