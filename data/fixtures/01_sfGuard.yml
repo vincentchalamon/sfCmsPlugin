@@ -22,7 +22,7 @@ sfGuardGroup:
   admin:
     name:           Admin
     description:    Groupe des administrateurs
-    Permissions:    [article, partial, menu, user]
+    Permissions:    [Article, Partial, Menu, User, Group, Permission]
     Users:          [admin]
   editor:
     name:           Editor
