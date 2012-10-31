@@ -2,7 +2,7 @@ Article:
   search:
     slug: search
     started_at: '2011-01-01 00:00:00'
-    title: Résultats de la recherche
+    title: Aucun résultat dans la recherche
     contents: Votre recherche n'a donné aucun résultat.
     content_type: partial
     Author: editor

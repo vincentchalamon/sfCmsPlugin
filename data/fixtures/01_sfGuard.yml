@@ -22,7 +22,7 @@ sfGuardGroup:
   admin:
     name:           Admin
     description:    Groupe des administrateurs
-    Permissions:    [Article, Partial, Menu, User, Group, Permission]
+    Permissions:    [article, partial, menu, user, group, permission]
     Users:          [admin]
   editor:
     name:           Editor
@@ -32,17 +32,20 @@ sfGuardGroup:
 
 sfGuardUser:
   chuck_norris:
+    is_active:      true
     is_super_admin: true
     email_address:  chuck-norris@example.com
     username:       chuck
     password:       norris
     redirect_url:   '@sf_guard_user'
   admin:
+    is_active:      true
     email_address:  admin@example.com
     username:       admin
     password:       admin
     redirect_url:   '@sf_guard_user'
   editor:
+    is_active:      true
     email_address:  editor@example.com
     username:       editor
     password:       editor
