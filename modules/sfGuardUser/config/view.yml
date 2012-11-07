@@ -1,2 +1,6 @@
-default:
+all:
   layout: admin
+  stylesheets: [-*]
+  javascripts: [-*]
+  metas:
+    robots: noindex
