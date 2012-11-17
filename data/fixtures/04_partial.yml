@@ -11,7 +11,6 @@ Article:
     started_at: '2011-01-01 00:00:00'
     title: Accès refusé
     contents: |
-      <h3>Vous n'avez pas accès à cette page !</h3>
       <p>Vous tentez d'accéder à une page sécurisée alors que vous ne possédez pas
       les droits nécessaires.</p>
     content_type: partial
@@ -19,10 +18,25 @@ Article:
   login:
     slug: login
     started_at: '2011-01-01 00:00:00'
-    title: Administration
+    title: Veuillez vous connecter
     contents: |
-      <h3>Veuillez vous connecter !</h3>
       <p>Vous tentez d'accéder à une page sécurisée alors que vous n'êtes pas
       connecté sur le site. Veuillez vous identifier grâce au formulaire ci-dessous.</p>
+    content_type: partial
+    Author: editor
+  forgot-password:
+    slug: forgot-password
+    started_at: '2011-01-01 00:00:00'
+    title: Mot de passe oublié ?
+    contents: |
+      <p>Veuillez remplir le formulaire ci-dessous pour recevoir un email d'information vous indiquant comment réinitialiser votre mot de passe.</p>
+    content_type: partial
+    Author: editor
+  change-password:
+    slug: change-password
+    started_at: '2011-01-01 00:00:00'
+    title: Changer votre mot de passe
+    contents: |
+      <p>Veuillez remplir le formulaire ci-dessous pour réinitialiser votre mot de passe.</p>
     content_type: partial
     Author: editor

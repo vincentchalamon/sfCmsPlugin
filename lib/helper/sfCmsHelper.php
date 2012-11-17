@@ -10,10 +10,10 @@ function getTagCloud(Article $article)
     return $cloud;
 }
 
-function getPartial($slug)
+function getPartial($slug, $column = "contents")
 {
     $partial = ArticleTable::getInstance()->findOneBySlugAndContentType($slug, ARTICLE::PARTIAL);
-    return $partial ? $partial->getContents() : false;
+    return $partial ? $partial[$column] : false;
 }
 
 function getMenu($slug, $published = false)

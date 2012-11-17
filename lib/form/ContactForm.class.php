@@ -14,14 +14,19 @@ class ContactForm extends BaseForm
     public function configure()
     {
         $this->setWidgets(array(
-            'name' => new sfWidgetFormInputText(),
-            'email' => new sfWidgetFormInputText(),
-            'message' => new sfWidgetFormTextarea()
+            'name' => new sfWidgetFormInputText(array('label' => 'Nom')),
+            'email' => new sfWidgetFormInputText(array('label' => 'Email')),
+            'message' => new sfWidgetFormTextarea(array('label' => 'Message'))
         ));
         $this->setValidators(array(
             'name' => new sfValidatorString(),
             'email' => new sfValidatorEmail(),
             'message' => new sfValidatorString()
+        ));
+        $this->getWidgetSchema()->setHelps(array(
+            'name' => 'Saisissez votre nom',
+            'email' => 'Saisissez votre adresse email',
+            'message' => 'Saisissez votre message'
         ));
         $this->widgetSchema->setNameFormat('contact[%s]');
         $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
