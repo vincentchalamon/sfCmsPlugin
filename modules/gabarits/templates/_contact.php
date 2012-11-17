@@ -1,11 +1,3 @@
-<?php if ($sf_request->isMethod('post') && $form->isValid()): ?>
-    <script type="text/javascript">
-    <!--
-    window.location = "<?php echo url_for($page->getRouteName()) ?>";
-    //-->
-    </script>
-<?php endif ?>
-
 <?php use_javascripts_for_form($form) ?>
 <?php use_stylesheets_for_form($form) ?>
 

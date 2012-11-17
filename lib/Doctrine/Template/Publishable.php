@@ -48,7 +48,7 @@ class Doctrine_Template_Publishable extends Doctrine_Template
      * @param int $limit Query limit or null for no limit
      * @return Doctrine_Collection Published objects
      */
-    public function findAllPublishedTableProxy($time = "now", $order = null, $limit = null, Doctrine_Query $query = null)
+    public function findAllPublishedTableProxy($time = "now", $order = null, $limit = null, Doctrine_Query $query = null, $action = "execute")
     {
         $time = date('Y-m-d H:i:s', strtotime($time));
         if (is_null($query)) {
@@ -57,7 +57,10 @@ class Doctrine_Template_Publishable extends Doctrine_Template
         $query->andWhere(sprintf("%s.%s <= ?", $query->getRootAlias(), $this->_options['names'][0]), $time)
                 ->andWhere(sprintf("%s.%s IS NULL OR %s.%s >= ?", $query->getRootAlias(), $this->_options['names'][1], $query->getRootAlias(), $this->_options['names'][1]), $time)
                 ->orderBy(sprintf("%s.%s", $query->getRootAlias(), is_null($order) ? $this->_options['names'][0]." ASC" : $order));
-        return is_null($limit) ? $query->execute() : $query->limit($limit)->execute();
+        if ($limit) {
+            $query->limit($limit);
+        }
+        return $action ? call_user_func(array($query, $action)) : $query;
     }
 
     /**
