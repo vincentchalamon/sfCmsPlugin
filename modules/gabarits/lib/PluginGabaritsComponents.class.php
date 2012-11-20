@@ -19,7 +19,7 @@ class PluginGabaritsComponents extends sfComponents
                 $this->getContext()->getConfiguration()->loadHelpers('Partial');
                 $message = $this->getMailer()->compose(
                         array($this->form->getValue('email') => $this->form->getValue('name')),
-                        sfConfig::get('app_sf_cms_contact'),
+                        array(sfConfig::get('app_sf_cms_contact') => sfConfig::get('app_sf_guard_plugin_default_from_name')),
                         $this->getContext()->getI18N()->__('New contact message', array(), 'sf_cms'),
                         get_partial('sfCms/mail', array(
                             'title' => $this->getContext()->getI18N()->__('New contact message', array(), 'sf_cms'),
