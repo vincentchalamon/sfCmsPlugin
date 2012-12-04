@@ -24,6 +24,12 @@ abstract class PluginMenuForm extends BaseMenuForm
         $this->setDefault('parent_id', $this->object->getParentId());
         $this->widgetSchema->setLabel('parent_id', 'Parent');
 
+        // Authentication
+        $this->widgetSchema['require_auth']->setLabel('Requiert une authentification');
+        $this->getWidgetSchema()->setHelp("require_auth", "Nécessite que l'utilisateur SOIT authentifié sur le site pour voir ce menu.");
+        $this->widgetSchema['require_no_auth']->setLabel('Ne requiert aucune authentification');
+        $this->getWidgetSchema()->setHelp("require_no_auth", "Nécessite que l'utilisateur NE SOIT PAS authentifié sur le site pour voir ce menu.");
+
         // Name
         $this->widgetSchema['name']->setAttribute("class", "text-input validate[required]");
         $this->widgetSchema['name']->setAttribute("title", "Titre *");
@@ -60,14 +66,7 @@ abstract class PluginMenuForm extends BaseMenuForm
         $this->validatorSchema['ended_at'] = new sfValidatorDateCustom(array('required' => false));
         $this->getWidgetSchema()->setHelp("ended_at", "Date jusqu'à laquelle le menu doit être publié. Si vide, le menu sera publié indéfiniement.");
 
-        foreach ($this->getValidatorSchema()->getPostValidator()->getValidators() as $validator) {
-            if (in_array('slug', $validator->getOption('column'))) {
-                $validator->setMessage('invalid', 'Ce slug existe déjà.');
-            }
-            if (in_array('article_id', $validator->getOption('column'))) {
-                $validator->setMessage('invalid', 'Cet article est déjà associé à un menu.');
-            }
-        }
+        $this->getValidatorSchema()->getPostValidator()->setMessage('invalid', 'Ce slug existe déjà.');
     }
 
     public function updateParentIdColumn($parentId)

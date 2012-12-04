@@ -21,7 +21,10 @@ class PluginArticleGeneratorHelper extends BaseArticleGeneratorHelper
 
   public function linkToDelete($object, $params)
   {
-    return '';
+    if ($object->isSystem()) {
+      return '';
+    }
+    return parent::linkToDelete($object, $params);
   }
 
   public function linkToPublish($object, $params)

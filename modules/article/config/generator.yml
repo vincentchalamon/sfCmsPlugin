@@ -49,15 +49,18 @@ generator:
         display: [title, author, publication_state]
         table_method: findArticles
         sort: [title, asc]
-        batch_actions: []
         object_actions:
           _edit: ~
           _show: ~
           _publish: ~
           _unpublish: ~
+          _delete: ~
       filter:
         display: [search, publication]
-      form:    ~
+      form:
+        template: columns
+        display: [title, gabarit, contents]
+        columns: [author_id, url, tags, keywords, description, started_at, ended_at, require_auth, require_no_auth]
       edit:
         title: Edition de "%%title%%"
       new:

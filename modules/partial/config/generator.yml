@@ -42,6 +42,9 @@ generator:
         display: [search]
       form:
         class: PartialForm
+        template: columns
+        display: [title, contents]
+        columns: [slug]
       edit:
         title: Edition de "%%title%%"
         actions:

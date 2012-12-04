@@ -52,7 +52,10 @@ generator:
             label: Ajouter racine
       filter:
         display: [search, publication]
-      form:    ~
+      form:
+        template: columns
+        display: [name, url, article_id, parent_id]
+        columns: [started_at, ended_at, require_auth, require_no_auth]
       edit:
         title: Edition du menu "%%name%%"
       new:
