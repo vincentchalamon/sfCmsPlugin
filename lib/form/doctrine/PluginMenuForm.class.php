@@ -15,8 +15,7 @@ abstract class PluginMenuForm extends BaseMenuForm
     public function setup()
     {
         parent::setup();
-        unset($this['created_at'], $this['updated_at'], $this['deleted_at'], $this['root_id'], $this['lft'], $this['rgt'], $this['level']);
-        $this->widgetSchema['slug'] = new sfWidgetFormInputHidden();
+        unset($this['created_at'], $this['updated_at'], $this['deleted_at'], $this['root_id'], $this['lft'], $this['rgt'], $this['level'], $this['slug']);
 
         // Parent
         $this->widgetSchema['parent_id'] = new sfWidgetFormDoctrineChoice(array('model' => 'Menu', 'add_empty' => '~ (racine)', 'order_by' => array('root_id, lft', ''), 'method' => 'getIndentedName'));
@@ -65,8 +64,6 @@ abstract class PluginMenuForm extends BaseMenuForm
         $this->widgetSchema['ended_at']->setAttribute("alt", "Fin de publication");
         $this->validatorSchema['ended_at'] = new sfValidatorDateCustom(array('required' => false));
         $this->getWidgetSchema()->setHelp("ended_at", "Date jusqu'à laquelle le menu doit être publié. Si vide, le menu sera publié indéfiniement.");
-
-        $this->getValidatorSchema()->getPostValidator()->setMessage('invalid', 'Ce slug existe déjà.');
     }
 
     public function updateParentIdColumn($parentId)

@@ -32,6 +32,8 @@ menu:
     with_wildcard_routes: true
     object_actions:
       add:                [get, post]
+      publish:            [get, post]
+      unpublish:          [get, post]
 
 article:
   class: sfDoctrineRouteCollection

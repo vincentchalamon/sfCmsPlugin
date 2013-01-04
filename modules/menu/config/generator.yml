@@ -12,7 +12,13 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
+      actions:
+        _publish:
+          label: Publier
+          action: publish
+        _unpublish:
+          label: Dépublier
+          action: unpublish
       fields:
         search:
           label: Rechercher
@@ -47,6 +53,8 @@ generator:
             action: add
           _edit:    ~
           _delete:  ~
+          _publish: ~
+          _unpublish: ~
         actions:
           _new:
             label: Ajouter racine

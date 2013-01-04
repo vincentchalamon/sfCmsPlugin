@@ -18,6 +18,18 @@ abstract class PluginMenuActions extends autoMenuActions
     $query->addOrderBy('root_id, lft');
   }
 
+  public function executePublish(sfWebRequest $request)
+  {
+    $this->getRoute()->getObject()->publish();
+    $this->redirect($request->getReferer());
+  }
+
+  public function executeUnpublish(sfWebRequest $request)
+  {
+    $this->getRoute()->getObject()->unpublish();
+    $this->redirect($request->getReferer());
+  }
+
   public function executeBatch(sfWebRequest $request)
   {
     if ("batchOrder" == $request->getParameter('batch_action'))
