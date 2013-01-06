@@ -34,6 +34,8 @@ menu:
       add:                [get, post]
       publish:            [get, post]
       unpublish:          [get, post]
+      up:                 [get, post]
+      down:               [get, post]
 
 article:
   class: sfDoctrineRouteCollection

@@ -17,6 +17,18 @@ abstract class PluginMenuActions extends autoMenuActions
     //don't allow sorting; always sort by menu and lft
     $query->addOrderBy('root_id, lft');
   }
+  
+  public function executeDown(sfWebRequest $request)
+  {
+    $this->getRoute()->getObject()->moveDown();
+    $this->redirect($request->getReferer());
+  }
+  
+  public function executeUp(sfWebRequest $request)
+  {
+    $this->getRoute()->getObject()->moveUp();
+    $this->redirect($request->getReferer());
+  }
 
   public function executePublish(sfWebRequest $request)
   {

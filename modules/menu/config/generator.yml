@@ -19,6 +19,12 @@ generator:
         _unpublish:
           label: Dépublier
           action: unpublish
+        _up:
+          label: Monter
+          action: moveUp
+        _down:
+          label: Descendre
+          action: moveDown
       fields:
         search:
           label: Rechercher
@@ -55,6 +61,8 @@ generator:
           _delete:  ~
           _publish: ~
           _unpublish: ~
+          _up: ~
+          _down: ~
         actions:
           _new:
             label: Ajouter racine

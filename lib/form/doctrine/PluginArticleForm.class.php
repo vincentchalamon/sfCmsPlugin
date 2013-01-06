@@ -14,12 +14,11 @@ abstract class PluginArticleForm extends BaseArticleForm
     public function setup()
     {
         parent::setup();
-        unset($this['created_at'], $this['updated_at'], $this['deleted_at']);
+        unset($this['created_at'], $this['updated_at'], $this['deleted_at'], $this['slug']);
         $this->widgetSchema['content_type'] = new sfWidgetFormInputHidden();
         if ($this->getUser()->hasGroup("Association") || !$this->isNew()) {
             $this->widgetSchema['author_id'] = new sfWidgetFormInputHidden();
         }
-        $this->widgetSchema['slug'] = new sfWidgetFormInputHidden();
         $this->setDefault("author_id", sfContext::getInstance()->getUser()->getGuardUser()->getId());
         $this->setDefault("content_type", Article::ARTICLE);
 
@@ -122,7 +121,7 @@ abstract class PluginArticleForm extends BaseArticleForm
         if (isset($this->widgetSchema['tags'])) {
             $this->setDefault('tags', $this->getObject()->getTags());
         }
-        if (isset($this->widgetSchema['url'])) {
+        if (isset($this->widgetSchema['url']) && !$this->isNew()) {
             $this->setDefault('url', $this->getObject()->getRoute());
         }
     }

@@ -12,6 +12,26 @@
  */
 abstract class PluginMenu extends BaseMenu
 {
+    
+    public function moveUp()
+    {
+        if ($this->getNode()->hasPrevSibling()) {
+            $this->getNode()->moveAsPrevSiblingOf($this->getNode()->getPrevSibling());
+        } else {
+            $this->getNode()->moveAsFirstChildOf($this->getParent());
+        }
+        $this->save();
+    }
+    
+    public function moveDown()
+    {
+        if ($this->getNode()->hasNextSibling()) {
+            $this->getNode()->moveAsNextSiblingOf($this->getNode()->getNextSibling());
+        } else {
+            $this->getNode()->moveAsLastChildOf($this->getParent());
+        }
+        $this->save();
+    }
 
     public function hasArticle()
     {
@@ -35,6 +55,16 @@ abstract class PluginMenu extends BaseMenu
     public function getChildren()
     {
         return $this->getNode()->getChildren();
+    }
+    
+    public function isFirst()
+    {
+        return $this->hasParent() && $this->getLft()-1 == $this->getParent()->getLft();
+    }
+    
+    public function isLast()
+    {
+        return $this->hasParent() && $this->getRgt()+1 == $this->getParent()->getRgt();
     }
 
     public function hasChildren()

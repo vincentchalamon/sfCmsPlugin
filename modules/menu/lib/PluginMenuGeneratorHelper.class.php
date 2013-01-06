@@ -27,4 +27,22 @@ class PluginMenuGeneratorHelper extends BaseMenuGeneratorHelper
     }
     return '<li class="sf_admin_action_unpublish">'.link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('unpublish'), $object).'</li>';
   }
+
+  public function linkToUp($object, $params)
+  {
+    if($object->isFirst())
+    {
+      return '';
+    }
+    return '<li class="sf_admin_action_up">'.link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('up'), $object).'</li>';
+  }
+
+  public function linkToDown($object, $params)
+  {
+    if($object->isLast())
+    {
+      return '';
+    }
+    return '<li class="sf_admin_action_down">'.link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('down'), $object).'</li>';
+  }
 }
