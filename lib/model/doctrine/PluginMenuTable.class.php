@@ -41,19 +41,40 @@ class PluginMenuTable extends Doctrine_Table
                         ->orderBy("menu.root_id, menu.lft");
     }
 
-    public function getMenu($slug)
+    public function getMenu($slug, $showUnpublishedElements = false)
     {
         $menu = $this->findOneBySlug($slug);
         if (!$menu)
             throw new InvalidArgumentException("Menu $slug does not exist !", 500);
-        return $this->createQuery("m")
-                        ->leftJoin("m.Article a")
-                        ->leftJoin("m.Permissions permission")
-                        ->where("m.lft >= ?", $menu->getLft())
-                        ->andWhere("m.rgt <= ?", $menu->getRgt())
-                        ->andWhere("m.root_id = ?", $menu->getRootId())
-                        ->orderBy("m.lft ASC")
-                        ->setHydrationMode(Doctrine::HYDRATE_RECORD_HIERARCHY)
-                        ->fetchOne();
+        $query = $this->createQuery("m")
+                      ->leftJoin("m.Article a")
+                      ->leftJoin("m.Permissions permission")
+                      ->where("m.lft >= ?", $menu->getLft())
+                      ->andWhere("m.rgt <= ?", $menu->getRgt())
+                      ->andWhere("m.root_id = ?", $menu->getRootId())
+                      ->orderBy("m.lft ASC")
+                      ->setHydrationMode(Doctrine::HYDRATE_RECORD_HIERARCHY);
+        $tree = $query->fetchOne();
+        // Manage published elements
+        return $tree && !$showUnpublishedElements ? $this->unsetUnpublished($tree) : $tree;
+    }
+    
+    protected function unsetUnpublished($menu)
+    {
+        // Menu is not published : ignore it and its children
+        if (!$menu->isPublished()) {
+            return false;
+        }
+        // Check children publication
+        if (isset($menu['__children']) && count($menu['__children'])) {
+            foreach ($menu['__children'] as $key => $child) {
+                if ($tree = $this->unsetUnpublished($child)) {
+                    $menu['__children'][$key] = $tree;
+                } else {
+                    $menu['__children']->remove($key);
+                }
+            }
+        }
+        return $menu;
     }
 }

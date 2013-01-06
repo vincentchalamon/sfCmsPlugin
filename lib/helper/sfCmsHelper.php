@@ -16,15 +16,14 @@ function getPartial($slug, $column = "contents")
     return $partial ? $partial[$column] : false;
 }
 
-function getMenu($slug, $published = false)
+function getMenu($slug, $showUnpublishedElements = false)
 {
-    $menu = MenuTable::getInstance()->getMenu($slug);
-    return $menu->isPublished() || $published ? $menu : false;
+    return MenuTable::getInstance()->getMenu($slug, $showUnpublishedElements);
 }
 
-function renderMenu($slug, $published = false, $partial = 'sfCms/renderMenu')
+function renderMenu($slug, $showUnpublishedElements = false, $partial = 'sfCms/renderMenu')
 {
-    $menu = getMenu($slug, $published);
+    $menu = getMenu($slug, $showUnpublishedElements);
     return $menu ? get_partial($partial, array('menu' => $menu)) : null;
 }
 

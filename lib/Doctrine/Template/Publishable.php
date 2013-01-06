@@ -54,9 +54,13 @@ class Doctrine_Template_Publishable extends Doctrine_Template
         if (is_null($query)) {
             $query = $this->getInvoker()->getTable()->createQuery("q");
         }
+        if (is_null($order)) {
+            $query->orderBy(sprintf("%s.%s", $query->getRootAlias(), $this->_options['names'][0]." ASC"));
+        } elseif (is_string($order)) {
+            $query->orderBy($order);
+        }
         $query->andWhere(sprintf("%s.%s <= ?", $query->getRootAlias(), $this->_options['names'][0]), $time)
-                ->andWhere(sprintf("%s.%s IS NULL OR %s.%s >= ?", $query->getRootAlias(), $this->_options['names'][1], $query->getRootAlias(), $this->_options['names'][1]), $time)
-                ->orderBy(sprintf("%s.%s", $query->getRootAlias(), is_null($order) ? $this->_options['names'][0]." ASC" : $order));
+              ->andWhere(sprintf("%s.%s IS NULL OR %s.%s >= ?", $query->getRootAlias(), $this->_options['names'][1], $query->getRootAlias(), $this->_options['names'][1]), $time);
         if ($limit) {
             $query->limit($limit);
         }
