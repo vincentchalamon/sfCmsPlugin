@@ -86,7 +86,7 @@ abstract class PluginArticleForm extends BaseArticleForm
 
         // Start publication
         $this->widgetSchema['started_at'] = new sfWidgetFormDateJQueryUI();
-        $this->widgetSchema['started_at']->setAttribute("class", "text-input maskedInputDate validate[optional,custom[date_custom]]");
+        $this->widgetSchema['started_at']->setAttribute("class", "text-input maskedInputDate");
         $this->widgetSchema['started_at']->setAttribute("title", "Début de publication");
         $this->widgetSchema['started_at']->setAttribute("placeholder", "Début de publication");
         $this->widgetSchema['started_at']->setAttribute("alt", "Début de publication");
@@ -95,7 +95,7 @@ abstract class PluginArticleForm extends BaseArticleForm
 
         // End publication
         $this->widgetSchema['ended_at'] = new sfWidgetFormDateJQueryUI();
-        $this->widgetSchema['ended_at']->setAttribute("class", "text-input maskedInputDate validate[optional,custom[date_custom]]");
+        $this->widgetSchema['ended_at']->setAttribute("class", "text-input maskedInputDate");
         $this->widgetSchema['ended_at']->setAttribute("title", "Fin de publication");
         $this->widgetSchema['ended_at']->setAttribute("placeholder", "Fin de publication");
         $this->widgetSchema['ended_at']->setAttribute("alt", "Fin de publication");
@@ -114,15 +114,20 @@ abstract class PluginArticleForm extends BaseArticleForm
             }
         }
     }
+    
+    protected function doBind(array $values)
+    {
+        if (!isset($values['url']) || !$values['url']) {
+            $values['url'] = null;
+        }
+        parent::doBind($values);
+    }
 
     protected function updateDefaultsFromObject()
     {
         parent::updateDefaultsFromObject();
         if (isset($this->widgetSchema['tags'])) {
             $this->setDefault('tags', $this->getObject()->getTags());
-        }
-        if (isset($this->widgetSchema['url']) && !$this->isNew()) {
-            $this->setDefault('url', $this->getObject()->getRoute());
         }
     }
 
