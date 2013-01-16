@@ -64,6 +64,9 @@ abstract class PluginMenuForm extends BaseMenuForm
         $this->widgetSchema['ended_at']->setAttribute("alt", "Fin de publication");
         $this->validatorSchema['ended_at'] = new sfValidatorDateCustom(array('required' => false));
         $this->getWidgetSchema()->setHelp("ended_at", "Date jusqu'à laquelle le menu doit être publié. Si vide, le menu sera publié indéfiniement.");
+        
+        // New window
+        $this->getWidgetSchema()->setHelp("new_window", "Ouvre le lien dans une nouvelle fenêtre.");
     }
 
     public function updateParentIdColumn($parentId)

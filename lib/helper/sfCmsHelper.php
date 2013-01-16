@@ -16,6 +16,11 @@ function getPartial($slug, $column = "contents")
     return $partial ? $partial[$column] : false;
 }
 
+function getMenuLink($menu)
+{
+    return link_to($menu, $menu->getRoute(), array_merge(array('title' => $menu), $menu['new_window'] ? array('target' => '_blank') : array()));
+}
+
 function getMenu($slug, $showUnpublishedElements = false)
 {
     return MenuTable::getInstance()->getMenu($slug, $showUnpublishedElements);

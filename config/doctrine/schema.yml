@@ -27,6 +27,9 @@ Menu:
     require_no_auth:
       type: boolean
       default: false
+    new_window:
+      type: boolean
+      default: false
   relations:
     Article:
       onDelete: SET NULL

@@ -44,6 +44,8 @@ generator:
           label: Fin de publication
         publication_state:
           label: Etat
+        new_window:
+          label: Nouvelle fenêtre
       list:
         title: Arborescence
         display: [_menu_icon, publication_state]
@@ -71,7 +73,7 @@ generator:
       form:
         template: columns
         display: [name, url, article_id, parent_id]
-        columns: [started_at, ended_at, require_auth, require_no_auth]
+        columns: [started_at, ended_at, require_auth, require_no_auth, new_window]
       edit:
         title: Edition du menu "%%name%%"
       new:

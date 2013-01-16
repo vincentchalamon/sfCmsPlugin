@@ -109,15 +109,12 @@ abstract class PluginArticleForm extends BaseArticleForm
             if (in_array('url', $validator->getOption('column'))) {
                 $validator->setMessage('invalid', 'Cette url existe déjà.');
             }
-            if (in_array('slug', $validator->getOption('column'))) {
-                $validator->setMessage('invalid', 'Ce slug existe déjà.');
-            }
         }
     }
     
     protected function doBind(array $values)
     {
-        if (!isset($values['url']) || !$values['url']) {
+        if (!$this->getObject()->isSystem() && !$this->getObject()->isPartial() && (!isset($values['url']) || !$values['url'])) {
             $values['url'] = null;
         }
         parent::doBind($values);

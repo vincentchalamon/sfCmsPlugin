@@ -1,6 +1,6 @@
 <?php if($menu->hasToRender($sf_user->getRawValue())): ?>
   <li>
-    <?php echo link_to($menu, $menu->getRoute(), array('title' => $menu)) ?>
+    <?php echo getMenuLink($menu) ?>
     <?php if($menu->hasChildren()): ?>
       <ul>
         <?php foreach($menu['__children'] as $children): ?>
