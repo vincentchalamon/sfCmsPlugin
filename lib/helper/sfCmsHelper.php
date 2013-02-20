@@ -18,7 +18,7 @@ function getPartial($slug, $column = "contents")
 
 function getMenuLink($menu)
 {
-    return link_to($menu, $menu->getRoute(), array_merge(array('title' => $menu), $menu['new_window'] ? array('target' => '_blank') : array()));
+    return link_to($menu->render(), $menu->getRoute(), array_merge(array('title' => $menu), $menu['new_window'] ? array('target' => '_blank') : array()));
 }
 
 function getMenu($slug, $showUnpublishedElements = false)

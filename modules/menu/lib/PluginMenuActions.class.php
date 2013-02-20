@@ -77,7 +77,6 @@ abstract class PluginMenuActions extends autoMenuActions
 
       // the id's validate, now update the menu
       $count = 0;
-      $flash = "";
 
       foreach ($newparent as $id => $parentId)
       {
@@ -92,15 +91,13 @@ abstract class PluginMenuActions extends autoMenuActions
             $node->save();
 
             $count++;
-
-            $flash .= "<br/>Moved '".$node['name']."' under '".$parent['name']."'.";
           }
         }
       }
 
       if ($count > 0)
       {
-        $this->getUser()->setFlash('notice', sprintf("Menu order updated, moved %s item%s:".$flash, $count, ($count > 1 ? 's' : '')));
+        $this->getUser()->setFlash('notice', sprintf("Menu order updated, moved %s item%s", $count, ($count > 1 ? 's' : '')));
       }
       else
       {
@@ -145,6 +142,12 @@ abstract class PluginMenuActions extends autoMenuActions
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
+    $values = $request->getParameter($form->getName());
+    if (!$values['article_id']) {
+      $form->getValidator('url')->setOption('required', true);
+    } else {
+      $form->getValidator('article_id')->setOption('required', true);
+    }
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {

@@ -35,17 +35,27 @@ abstract class PluginMenuForm extends BaseMenuForm
         $this->widgetSchema['name']->setAttribute("placeholder", "Titre *");
         $this->widgetSchema['name']->setAttribute("alt", "Titre *");
 
+        // Image path
+        $this->widgetSchema['image_path'] = new sfWidgetFormInputUploadify(array(
+            'is_image' => true,
+            'fileDesc' => 'Images',
+            'fileExt' => '*.jpg;*.JPG;*.png;*.PNG;*.gif;*.GIF;*.jpeg;*.JPEG'
+        ));
+        $this->widgetSchema['image_path']->setAttribute("class", "text-input");
+        $this->widgetSchema['image_path']->setAttribute("title", "Image");
+        $this->widgetSchema['image_path']->setAttribute("placeholder", "Image");
+        $this->widgetSchema['image_path']->setAttribute("alt", "Image");
+
         // Url
         $this->widgetSchema['url']->setAttribute("class", "text-input validate[optional,custom[url]]");
         $this->widgetSchema['url']->setAttribute("title", "Adresse personnalisée");
         $this->widgetSchema['url']->setAttribute("placeholder", "Adresse personnalisée");
         $this->widgetSchema['url']->setAttribute("alt", "Adresse personnalisée");
         $this->validatorSchema['url'] = new sfValidatorUrlCustom(array('required' => false, 'allow_symfony_routes' => true, 'allow_external_routes' => true));
-        $this->getWidgetSchema()->setHelp("url", "Vous pouvez saisir une url locale commençant par /, une adresse http, ou une url symfony.");
+        $this->getWidgetSchema()->setHelp("url", "Saisissez une url commençant par / ou http, ou une url symfony.");
 
         // Article
         $this->widgetSchema['article_id']->setOption('query', ArticleTable::getInstance()->getArticlesQuery($this->getObject()->getArticleId()));
-        $this->getWidgetSchema()->setHelp("article_id", "Si vous lié ce menu à un article, son url sera ignorée !");
 
         // Start publication
         $this->widgetSchema['started_at'] = new sfWidgetFormInputDate();

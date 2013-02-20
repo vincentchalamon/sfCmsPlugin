@@ -19,6 +19,7 @@ Menu:
     name:
       type: string(255)
       notnull: true
+    image_path: string(255)
     url: string(255)
     article_id: integer
     require_auth:

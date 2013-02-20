@@ -114,6 +114,9 @@ abstract class PluginMenu extends BaseMenu
         if ($this->getRequireNoAuth()) {
             $this->setRequireAuth(false);
         }
+        if ($this->getArticleId()) {
+            $this->setUrl(null);
+        }
     }
 
     public function getParentId()
@@ -124,5 +127,10 @@ abstract class PluginMenu extends BaseMenu
     public function getIndentedName()
     {
         return str_repeat('- ', $this->getLevel()).$this->getName();
+    }
+    
+    public function render()
+    {
+        return $this->getImagePath() ? sprintf('<img src="%s" title="%s" alt="%s" />', $this->getImagePath(), $this->getName(), $this->getName()) : $this->getName();
     }
 }

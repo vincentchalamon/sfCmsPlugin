@@ -30,6 +30,8 @@ generator:
           label: Rechercher
         name:
           label: Titre
+        image_path:
+          label: Image
         menu_icon:
           label: Nom
         url:
@@ -72,9 +74,9 @@ generator:
         display: [search, publication]
       form:
         template: columns
-        display: [name, url, article_id, parent_id]
+        display: [name, image_path, _target, url, article_id, parent_id]
         columns: [started_at, ended_at, require_auth, require_no_auth, new_window]
       edit:
-        title: Edition du menu "%%name%%"
+        title: %%name%%
       new:
         title: Nouveau menu
