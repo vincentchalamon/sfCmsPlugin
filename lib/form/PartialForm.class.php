@@ -13,6 +13,7 @@ class PartialForm extends ArticleForm
 
     public function configure()
     {
+        parent::configure();
         unset($this['created_at'], $this['updated_at'], $this['deleted_at'],
               $this['gabarit'], $this['keywords'], $this['description'], $this['url']);
         $this->setDefault("content_type", Article::PARTIAL);
@@ -23,6 +24,7 @@ class PartialForm extends ArticleForm
         $this->widgetSchema['slug']->setAttribute("title", "Clé");
         $this->widgetSchema['slug']->setAttribute("placeholder", "Clé");
         $this->widgetSchema['slug']->setAttribute("alt", "Clé");
+        $this->validatorSchema['slug'] = new sfValidatorString(array('max_length' => 255, 'required' => true));
         $this->getWidgetSchema()->setHelp("slug", "Clé unique permettant la récupération du bloc.");
     }
 }
