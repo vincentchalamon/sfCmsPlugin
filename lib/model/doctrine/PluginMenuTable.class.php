@@ -27,6 +27,7 @@ class PluginMenuTable extends Doctrine_Table
                 ->andWhere("menu.level = 1")
                 ->andWhere("menu.lft < ?", $menu->getLft())
                 ->andWhere("menu.rgt > ?", $menu->getRgt())
+                ->andWhere("menu.deleted_at IS NULL")
                 ->orderBy("menu.lft ASC")
                 ->fetchOne();
         return $menu->getLevel() <= 1 || !$parent ? $menu->getSlug() : $parent['slug'];
@@ -35,10 +36,10 @@ class PluginMenuTable extends Doctrine_Table
     public function findMenus()
     {
         return $this->createQuery("menu")
-                        ->leftJoin("menu.Article article")
-                        ->leftJoin("menu.Permissions permission")
-                        ->where("menu.deleted_at IS NULL")
-                        ->orderBy("menu.root_id, menu.lft");
+                    ->leftJoin("menu.Article article")
+                    ->leftJoin("menu.Permissions permission")
+                    ->where("menu.deleted_at IS NULL")
+                    ->orderBy("menu.root_id, menu.lft");
     }
 
     public function getMenu($slug, $showUnpublishedElements = false)
@@ -52,6 +53,7 @@ class PluginMenuTable extends Doctrine_Table
                       ->where("m.lft >= ?", $menu->getLft())
                       ->andWhere("m.rgt <= ?", $menu->getRgt())
                       ->andWhere("m.root_id = ?", $menu->getRootId())
+                      ->andWhere("m.deleted_at IS NULL")
                       ->orderBy("m.lft ASC")
                       ->setHydrationMode(Doctrine::HYDRATE_RECORD_HIERARCHY);
         $tree = $query->fetchOne();

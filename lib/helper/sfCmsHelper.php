@@ -39,6 +39,7 @@ function getBreadcrumb(Menu $menu)
                     ->andWhere("menu.level < ? AND menu.level > 0", $menu['level'])
                     ->andWhere("menu.lft < ?", $menu['lft'])
                     ->andWhere("menu.rgt > ?", $menu['rgt'])
+                    ->andWhere("menu.deleted_at IS NULL")
                     ->orderBy("menu.lft ASC")
                     ->groupBy("menu.level")
                     ->execute();
