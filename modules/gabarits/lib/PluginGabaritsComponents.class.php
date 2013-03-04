@@ -26,7 +26,7 @@ class PluginGabaritsComponents extends sfComponents
                             'message' => $this->form->getValue('message')
                         ))
                 )->setContentType('text/html');
-                $this->getMailer()->send($message);
+                $this->getMailer()->batchSend($message);
                 $this->getUser()->setFlash('notice', $this->getContext()->getI18N()->__('Message has been successfully sent.', array(), 'sf_cms'));
                 $this->form = new ContactForm();
             } else {
