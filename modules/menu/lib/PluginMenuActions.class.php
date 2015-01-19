@@ -82,8 +82,8 @@ abstract class PluginMenuActions extends autoMenuActions
       {
         if (!empty($parentId))
         {
-          $node = Doctrine::getTable('Menu')->find($id);
-          $parent = Doctrine::getTable('Menu')->find($parentId);
+          $node = Doctrine_Core::getTable('Menu')->find($id);
+          $parent = Doctrine_Core::getTable('Menu')->find($parentId);
 
           if (!$parent->getNode()->isDescendantOfOrEqualTo($node))
           {
