@@ -1,3 +1,5 @@
+**THIS PLUGIN IS NOT MAINTAINED ANYMORE !**
+
 # Configuration
 
 Ce plugin symfony 1.4 fournit des fonctionnalités de CMS de base pour la gestion de contenus. Il requiert les plugins suivants :
