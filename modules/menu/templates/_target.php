@@ -37,7 +37,7 @@
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.sf_admin_form_field_target input').live('change', function(){
+        $('.sf_admin_form_field_target input').bind('change', function(){
             $('.sf_admin_form_field_url, .sf_admin_form_field_article_id').hide();
             $('.sf_admin_form_field_' + $(this).val()).show();
         }).siblings(':checked').trigger('change');

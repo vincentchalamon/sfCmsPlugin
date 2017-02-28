@@ -14,7 +14,7 @@
       padding: 0,
       margin: 0
     });
-    $('.sf_admin_row td:not(.sf_admin_batch_actions)').live('click', function(){
+    $('.sf_admin_row td:not(.sf_admin_batch_actions)').bind('click', function(){
       $(this).parent().next('.sf_admin_row_object_actions').find('a.fancybox').click();
     });
     // Batch actions
